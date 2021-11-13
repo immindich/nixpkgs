@@ -1,0 +1,43 @@
+diff --git a/M2/CMakeLists.txt b/M2/CMakeLists.txt
+index 7991d23ff..e3122a65c 100644
+--- M2/CMakeLists.txt
++++ M2/CMakeLists.txt
+@@ -60,6 +60,8 @@ project(Macaulay2
+   HOMEPAGE_URL	http://macaulay2.com # contact: Macaulay2@math.uiuc.edu
+   LANGUAGES	C CXX)
+
++set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fabi-version=0")
++
+ ###############################################################################
+ ## Set path for CMake modules
+ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
+diff --git a/M2/Macaulay2/CMakeLists.txt b/M2/Macaulay2/CMakeLists.txt
+index 19f02c002..7595bcfc3 100644
+--- M2/Macaulay2/CMakeLists.txt
++++ M2/Macaulay2/CMakeLists.txt
+@@ -32,6 +32,7 @@ add_compile_options(
+   -Wno-attributes # caused by SIMD unpack functions in fflas-ffpack
+   # caused by unnecessary openmp linker flags due to fflas_ffpack dependency
+   $<$<CXX_COMPILER_ID:AppleClang,Clang>:-Wno-unused-command-line-argument>
++  -fabi-version=0
+   )
+
+ ###############################################################################
+diff --git a/M2/Macaulay2/e/CMakeLists.txt b/M2/Macaulay2/e/CMakeLists.txt
+index c3b0e8280..f41a72011 100644
+--- M2/Macaulay2/e/CMakeLists.txt
++++ M2/Macaulay2/e/CMakeLists.txt
+@@ -383,11 +383,14 @@ target_compile_options(M2-engine PRIVATE
+   -Wno-deprecated-copy -Wno-unknown-pragmas # caused by Givaro and fflas_ffpack
+   -Wno-ignored-qualifiers # FIXME: caused by bibasis/tset.hpp:44:9
+   -Wno-implicit-fallthrough # FIXME: caused by gb-default.cpp, gb-test1.cpp, gb-walk.cpp, hermite.cpp, etc.
++  -fabi-version=0
+   >
+
+   # Intel TODO: -diag-disable 981,869,383,2259,444 -debug -Wimplicit-function-declaration
+   )
+
++set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wasdfasjdfasdflkjsdlkfjasdf")
++
+ ###############################################################################
+ ## Export the target

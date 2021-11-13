@@ -31664,6 +31664,10 @@ with pkgs;
   geogebra = callPackage ../applications/science/math/geogebra { };
   geogebra6 = callPackage ../applications/science/math/geogebra/geogebra6.nix { };
 
+  macaulay2 = callPackage ../applications/science/math/macaulay2 { };
+
+  mpsolve = callPackage ../applications/science/math/mpsolve { };
+
   maxima = callPackage ../applications/science/math/maxima {
     ecl = null;
   };

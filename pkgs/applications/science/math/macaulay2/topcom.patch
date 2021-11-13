@@ -1,0 +1,30 @@
+--- topcom-0.17.8/configure
++++ topcom-0.17.8/configure
+@@ -4091,8 +4091,6 @@
+ fi
+
+
+-make -C external gmp
+-make -C external cdd
+
+ { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lsoplex" >&5
+ $as_echo_n "checking for main in -lsoplex... " >&6; }
+@@ -5914,4 +5912,3 @@
+   { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: unrecognized options: $ac_unrecognized_opts" >&5
+ $as_echo "$as_me: WARNING: unrecognized options: $ac_unrecognized_opts" >&2;}
+ fi
+-
+--- topcom-0.17.8/src/Makefile.am
++++ topcom-0.17.8/src/Makefile.am
+@@ -84,10 +84,7 @@
+ santos_22_triang_SOURCES           = santos_22_triang.cc
+
+ LDADD           = ../lib-src/libTOPCOM.a \
+-                  ../lib-src-reg/libCHECKREG.a \
+-                  ../external/lib/libcddgmp.a \
+-                  ../external/lib/libgmpxx.a \
+-                  ../external/lib/libgmp.a
++                  ../lib-src-reg/libCHECKREG.a
+
+ AM_CPPFLAGS     = -I../lib-src
+ AM_CPPFLAGS    += -I../lib-src-reg
